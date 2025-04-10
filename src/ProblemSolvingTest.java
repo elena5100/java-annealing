@@ -98,7 +98,29 @@ public class ProblemSolvingTest {
   // TODO:
   // Come up with more tests to thoroughly test hasEmptyString
   // Use your creativity here!
+// Test that returns true when all strings are empty
+@Test
+void testHasEmptyString_allEmpty() {
+  Set<String> input = Set.of("", "", "");
+  boolean actual = ProblemSolving.hasEmptyString(input);
+  assertTrue(actual);
+}
 
+// Test that returns false for an empty set
+@Test
+void testHasEmptyString_emptySet() {
+  Set<String> input = Set.of();
+  boolean actual = ProblemSolving.hasEmptyString(input);
+  assertFalse(actual);
+}
+
+// Test with only one empty string
+@Test
+void testHasEmptyString_onlyOneElementEmpty() {
+  Set<String> input = Set.of("");
+  boolean actual = ProblemSolving.hasEmptyString(input);
+  assertTrue(actual);
+}
 
   @Test
   void testMaxLength_multipleWords() {
