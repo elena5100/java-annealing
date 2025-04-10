@@ -34,6 +34,45 @@ public class ProblemSolvingTest {
   //  - test a set where none start with A
   //  - test a set with only a single element
   //  - more you can think of!
+  // Test that returns true for an empty set (vacuously true)
+  @Test
+  void testAllStartWithA_emptySet() {
+    Set<String> input = Set.of();
+    boolean actual = ProblemSolving.allStartWithA(input);
+    assertTrue(actual);
+  }
+
+  // Test that returns false when none of the strings start with "A"
+  @Test
+  void testAllStartWithA_noneStartWithA() {
+    Set<String> input = Set.of("banana", "cat", "dog");
+    boolean actual = ProblemSolving.allStartWithA(input);
+    assertFalse(actual);
+  }
+
+  // Test that returns true for a single valid string
+  @Test
+  void testAllStartWithA_singleElement_true() {
+    Set<String> input = Set.of("avocado");
+    boolean actual = ProblemSolving.allStartWithA(input);
+    assertTrue(actual);
+  }
+
+  // Test that returns false for a single invalid string
+  @Test
+  void testAllStartWithA_singleElement_false() {
+    Set<String> input = Set.of("banana");
+    boolean actual = ProblemSolving.allStartWithA(input);
+    assertFalse(actual);
+  }
+
+  // Case-sensitive check that all words start with "A"/"a"
+  @Test
+  void testAllStartWithA_caseSensitivity() {
+    Set<String> input = Set.of("apple", "Antelope", "Alligator");
+    boolean actual = ProblemSolving.allStartWithA(input);
+    assertTrue(actual);
+  }
 
   @Test
   void testHasEmptyString_falseAllNonEmpty() {
