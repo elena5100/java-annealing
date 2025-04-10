@@ -136,6 +136,38 @@ void testHasEmptyString_onlyOneElementEmpty() {
   // TODO:
   // Come up with more tests to thoroughly test maxLength
   // Use your creativity here!
+
+   // Single string length test
+   @Test
+   void testMaxLength_singleWord() {
+     Set<String> input = Set.of("longword");
+     int actual = ProblemSolving.maxLength(input);
+     assertEquals(8, actual);
+   }
+ 
+   // All strings same length
+   @Test
+   void testMaxLength_equalLengthWords() {
+     Set<String> input = Set.of("cat", "dog", "man");
+     int actual = ProblemSolving.maxLength(input);
+     assertEquals(3, actual);
+   }
+ 
+   // Includes empty string, but max comes from others
+   @Test
+   void testMaxLength_containsEmptyString() {
+     Set<String> input = Set.of("", "alpha", "betamax");
+     int actual = ProblemSolving.maxLength(input);
+     assertEquals(7, actual);
+   }
+ 
+   // Empty set returns 0
+   @Test
+   void testMaxLength_emptySet() {
+     Set<String> input = Set.of();
+     int actual = ProblemSolving.maxLength(input);
+     assertEquals(0, actual);
+   }
     
   
   // TODO:
