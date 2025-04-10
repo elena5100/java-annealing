@@ -174,5 +174,43 @@ void testHasEmptyString_onlyOneElementEmpty() {
   // Come up with ALL tests to thoroughly test minLength
   // Use your creativity here, and consider looking back at the maxLength
   // tests for inspiration
+ // Finds shortest length among many
+ @Test
+ void testMinLength_multipleWords() {
+   Set<String> input = Set.of("cat", "a", "zebra", "mammoth");
+   int actual = ProblemSolving.minLength(input);
+   assertEquals(1, actual);
+ }
 
+ // One word only
+ @Test
+ void testMinLength_singleWord() {
+   Set<String> input = Set.of("hello");
+   int actual = ProblemSolving.minLength(input);
+   assertEquals(5, actual);
+ }
+
+ // All same length
+ @Test
+ void testMinLength_allSameLength() {
+   Set<String> input = Set.of("car", "bar", "far");
+   int actual = ProblemSolving.minLength(input);
+   assertEquals(3, actual);
+ }
+
+ // Should detect 0 from empty string
+ @Test
+ void testMinLength_containsEmptyString() {
+   Set<String> input = Set.of("one", "", "three");
+   int actual = ProblemSolving.minLength(input);
+   assertEquals(0, actual);
+ }
+
+ // Empty set returns 0
+ @Test
+ void testMinLength_emptySet() {
+   Set<String> input = Set.of();
+   int actual = ProblemSolving.minLength(input);
+   assertEquals(0, actual);
+ }
 }
